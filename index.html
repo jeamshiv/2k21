@@ -115,17 +115,17 @@
 					</div>
 					<div class="modal-body">
 						
-						<form action="index.html">
+						<form>
 							<div class="form-group">
 							  <label for="inputCity">Share with Your Wish</label>
-							  <input type="text" name="by" id="name" class="form-control" placeholder="Your Name">
+							  <input type="text" name="by" id="name" class="form-control" placeholder="Your Name" required="">
 							</div>
 						
 
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Share Now!
+						<button type="button" class="btn btn-primary" id="share">Share Now!
 							<i class="fab fa-whatsapp"></i>
 						</button>
 					</div>
@@ -140,6 +140,19 @@
 
 	<script>
 		$(document).ready(function (event) {
+
+
+
+		$("#share").on('click', function(e) {
+			var by = $("#name").val();
+
+
+			alert(`https://api.whatsapp.com/send?text ${by} has send you New Year 2021 wishes click on blue text https://jeamshiv.github.io/2k21/index.html?by=${by}`);
+
+			
+		
+			window.location.href=`whatsapp://send?text ${by} has send you New Year 2021 wishes click on blue text https://jeamshiv.github.io/2k21/index.html?by=${by}`;
+		});
 
 		var urlParams = new URLSearchParams(window.location.search);
 		var by = urlParams.get('by');
