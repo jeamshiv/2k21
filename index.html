@@ -146,12 +146,9 @@
 			var name = $("#name").val();
 
 			
-			var by = name.replace(/\s/g, '+');
+			var by = name.replace(' ', '+');
 			
 			window.location.href=`whatsapp://send?text= ${by} has send you New Year 2021 wishes click on blue text https://jeamshiv.github.io/2k21/index.html?by=${by}`;
-			
-			alert(by);
-			alert("Sorry This is Not Supported By Windows");
 		});
 
 		var urlParams = new URLSearchParams(window.location.search);
