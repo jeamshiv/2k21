@@ -155,10 +155,15 @@
 			
 			var by = name.replace(/ /g, '+');
 			
-			
 			window.location.href=`whatsapp://send?text=${by} has send you New Year 2021 wishes click on blue text https://jeamshiv.github.io/2k21/index.html?by=${by}`;
 			
-			if($(window).width()> 768){alert("Sorry This is Not Supported By Windows");}
+			if($(window).width()> 768){
+			
+				var  temp_message = ` ${by} has send you New Year 2021 wishes click on blue text https://jeamshiv.github.io/2k21/index.html?by=${by}`;
+				var message = temp_message.replace(/ /g, '%20');
+				
+				window.location.href=`https://api.whatsapp.com/send?text=${message}`;
+				}
 		});
 
 		var urlParams = new URLSearchParams(window.location.search);
